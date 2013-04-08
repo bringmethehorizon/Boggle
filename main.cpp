@@ -1,12 +1,10 @@
 ﻿#include "Dictionary.h"
 
-int wmain(int argc, wchar_t* argv[])
+int main()
 {
-    _setmode(_fileno(stdout), _O_U16TEXT);
-	Dictionary dict("bg.dict");
-	for(auto i: dict.data)
-	{
-		wcout << i << endl;
-	}
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	Dictionary dict("bg1.dict");
+	dict.printWords();
 	system("pause");
+	return 0;
 }

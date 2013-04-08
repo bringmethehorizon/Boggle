@@ -15,6 +15,8 @@ class Dictionary
 public:
 	Dictionary(string);
 	~Dictionary(void);
+	void printWords();
+private:
 	set<wstring> data;
 };
 
