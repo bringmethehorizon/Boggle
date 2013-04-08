@@ -20,6 +20,7 @@ Dictionary::Dictionary(string fileName)
 	while(file >> temp)
 	{
 		data.insert(temp);
+		//data.push_back(temp);
 	}
 }
 void Dictionary::printWords()
@@ -29,7 +30,11 @@ void Dictionary::printWords()
 		wcout << i << endl;
 	}
 }
-
+bool Dictionary::wordExists(wstring word)
+{
+	if(data.find(word)!=data.end()) return true;
+	else return false;
+}
 
 Dictionary::~Dictionary(void)
 {
