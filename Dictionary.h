@@ -11,6 +11,8 @@
 #include <chrono>
 #include <algorithm>
 
+#define MAX_DEPTH 10
+
 using namespace std;
 
 class Dictionary
@@ -20,8 +22,12 @@ public:
 	~Dictionary(void);
 	void printWords();
 	bool wordExists(wstring);
+	bool tripleExists(wstring);
+	bool pairExists(wstring);
 private:
 	set<wstring> data;
+	set<wstring> triples;
+	set<wstring> pairs;
 	//vector<wstring> data;
 };
 

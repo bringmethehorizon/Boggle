@@ -19,7 +19,10 @@ Dictionary::Dictionary(string fileName)
 	int j;
 	while(file >> temp)
 	{
+		if(temp.length()<3 || temp.length()>MAX_DEPTH) continue;
 		data.insert(temp);
+		triples.insert(temp.substr(0,3));
+		pairs.insert(temp.substr(0,2));
 		//data.push_back(temp);
 	}
 }
@@ -32,10 +35,16 @@ void Dictionary::printWords()
 }
 bool Dictionary::wordExists(wstring word)
 {
-	if(data.find(word)!=data.end()) return true;
-	else return false;
+	return (data.find(word)!=data.end());
 }
-
+bool Dictionary::tripleExists(wstring word)
+{
+	return (triples.find(word)!=triples.end());
+}
+bool Dictionary::pairExists(wstring word)
+{
+	return (pairs.find(word)!=pairs.end());
+}
 Dictionary::~Dictionary(void)
 {
 }
