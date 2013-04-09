@@ -15,6 +15,7 @@ wstring matrix[COLS]=
 
 //set<wstring> results;
 vector<wstring> results;
+mutex results_mutex;
 void solver(int x, int y, wstring so_far, char depth)
 {
 	if(so_far.length()==2)
@@ -29,7 +30,12 @@ void solver(int x, int y, wstring so_far, char depth)
 	if(depth==MAX_DEPTH) return;
 	so_far+=matrix[x][y];
 	depth++;
-	if(dict.wordExists(so_far)) results.push_back(so_far);//results.insert(so_far);
+	if(dict.wordExists(so_far)) 
+	{
+		//results_mutex.lock();
+		results.push_back(so_far);
+		//results_mutex.unlock();
+	}//results.insert(so_far);
 	if(x-1>=0) solver(x-1,y,so_far,depth);
 	if(x+1<ROWS) solver(x+1,y,so_far,depth);
 	if(y-1>=0) solver(x,y-1,so_far,depth);
@@ -38,6 +44,7 @@ void solver(int x, int y, wstring so_far, char depth)
 
 void solve()
 {
+	thread* t[ROWS];
 	//Lower the letters
 	for(int i=0; i<ROWS; i++)
 		for(int j=0; j<COLS; j++)
@@ -51,11 +58,19 @@ void solve()
 	//	wcout << endl;
 	//}
 	for(int i=0; i<ROWS; i++)
-		for(int j=0; j<COLS; j++)
-		{
-			solver(i,j,L"",0);
-		}
-
+	{
+		t[i]=new thread([=]
+		{		
+			for(int j=0; j<COLS; j++)
+			{
+				solver(i,j,L"",0);
+			}
+		});
+	}
+	for(auto i: t)
+	{
+		i->join();
+	}
 }
 
 struct comparator
