@@ -1,7 +1,10 @@
 ﻿#include "Dictionary.h"
 
 
-Dictionary::Dictionary(string fileName)
+Dictionary::Dictionary(void)
+{
+}
+void Dictionary::loadFile(string fileName)
 {	
 	//UTF8 encoding
 	const std::locale empty_locale = std::locale::empty();

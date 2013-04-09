@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <thread>
 #include <mutex>
+#include <Windows.h>
 
 #define MAX_DEPTH 10
 
@@ -20,8 +21,9 @@ using namespace std;
 class Dictionary
 {
 public:
-	Dictionary(string);
+	Dictionary(void);
 	~Dictionary(void);
+	void loadFile(string);
 	void printWords();
 	bool wordExists(wstring);
 	bool tripleExists(wstring);
