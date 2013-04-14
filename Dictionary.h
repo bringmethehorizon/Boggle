@@ -3,6 +3,7 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <locale>
 #include <codecvt>
@@ -13,6 +14,9 @@
 #include <thread>
 #include <mutex>
 #include <Windows.h>
+#include <WinUser.h>
+#include <Richedit.h>
+#include <map>
 
 #define MAX_DEPTH 10
 
