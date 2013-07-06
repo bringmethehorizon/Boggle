@@ -26,7 +26,6 @@ void Dictionary::loadFile(string fileName)
 		data.insert(temp);
 		triples.insert(temp.substr(0,3));
 		pairs.insert(temp.substr(0,2));
-		//data.push_back(temp);
 	}
 }
 void Dictionary::printWords()
