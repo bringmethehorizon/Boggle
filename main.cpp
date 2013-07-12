@@ -9,18 +9,6 @@ using namespace std;
 #define hE2 126
 #define hE3 127
 #define hE4 128
-//#define hE5 129
-//#define hE6 130
-//#define hE7 131
-//#define hE8 132
-//#define hE9 133
-//#define hE10 134
-//#define hE11 135
-//#define hE12 136
-//#define hE13 137
-//#define hE14 138
-//#define hE15 139
-//#define hE16 140
 #define hS 141
 #define hL 142
 
@@ -130,10 +118,6 @@ void initializeControls(HWND hwnd)
 		WS_CHILD | WS_VISIBLE | WS_VSCROLL | ES_AUTOVSCROLL| LBS_NOTIFY, 
 		270, 70, 200, 300, hwnd, (HMENU)hL, NULL, NULL);
 	SendMessage(hListBox,WM_SETFONT,(WPARAM)font,0);
-	//	SendMessageW(hListBox, LB_ADDSTRING, 0, (LPARAM)L"КЕФ");
-	//  SendMessageW(hListBox, LB_ADDSTRING, 0, (LPARAM)L"extension");
-	//  SendMessageW(hListBox, LB_ADDSTRING, 0, (LPARAM)L"date");
-	//  SendMessageW(hListBox, LB_ADDSTRING, 0, (LPARAM)L"size");
 
 }
 
@@ -156,7 +140,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	switch(msg)
 	{
 	case WM_CREATE:
-		//MessageBox(hwnd,"Fun","FUN",MB_OK);
 		setlocale(LC_CTYPE, "");
 		_setmode(_fileno(stdout), _O_U8TEXT);
 		_setmode(_fileno(stdin), _O_U16TEXT);
@@ -210,7 +193,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 				
 				
 				
-				//MessageBoxW(hwnd,str.c_str(),L"rewr",MB_OK);
 
 				//hDC=GetDC(hLabelControls[0]);
 				//SetTextColor(hDC,RGB(255,0,0));
