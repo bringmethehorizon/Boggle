@@ -110,5 +110,4 @@ void calculate()
 	}
 	SendMessageW(hSearch,WM_SETTEXT,0,(LPARAM)L"Search!");
 	EnableWindow(hSearch,TRUE);
-	//MessageBoxW(NULL,L"FUN",L"Кеф",MB_OK);
 }
